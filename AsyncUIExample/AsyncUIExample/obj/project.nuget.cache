@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Amhq84cb35l9dtGL3aIMtVdhpUvucG+cqDxwLj6etVEtpCODi+RDZatn+gTlJhPxOzbiJRNXdfYrieX1cSjoHQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jacen\\source\\repos\\Demos\\AsyncUIExample\\AsyncUIExample\\AsyncUIExample.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jacen\\.nuget\\packages\\communitytoolkit.mvvm\\7.1.2\\communitytoolkit.mvvm.7.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

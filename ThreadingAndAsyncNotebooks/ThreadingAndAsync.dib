@@ -1,0 +1,59 @@
+#!csharp
+
+using System.Threading;
+
+public class MockService 
+{
+    public string DoWork(string name, int waitTime = 1000)
+    {
+        Thread.Sleep(1000); // simulates cpu intensive operation. Blocks thread
+        Console.WriteLine($"{name} finished");
+        return $"{name} result: completed!";
+    }
+
+    public async Task<string> DoWorkAsync(string name, int waitTime = 1000)
+    {
+        await Task.Delay(waitTime); // simulates async operation. Does not block thread
+        Console.WriteLine($"{name} finished");
+        return $"{name} result: Completed!";
+    }
+}
+
+var service = new MockService();
+
+#!csharp
+
+var response = service.DoWork("Test");
+Console.WriteLine(response);
+
+#!csharp
+
+var responseOne = await Task.Run(() => service.DoWork("One"));
+var responseTwo = await Task.Run(() => service.DoWork("Two"));
+
+Console.WriteLine(responseOne);
+Console.WriteLine(responseTwo);
+
+#!csharp
+
+var service = new MockService();
+
+var tasks = new List<Task>();
+
+tasks.Add(Task.Run(() => service.DoWorkAsync("One")));
+tasks.Add(Task.Run(() => service.DoWorkAsync("Two")));
+
+await Task.WhenAll(tasks);
+
+Console.WriteLine("All Complete!");
+
+#!csharp
+
+var tasks = new List<Task>();
+
+tasks.Add(Task.Run(() => service. DoWork("One")));
+tasks.Add(Task.Run(() => service.DoWork("Two")));
+
+await Task.WhenAll(tasks);
+
+Console.WriteLine("All Complete!");
